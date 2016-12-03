@@ -127,6 +127,7 @@ expect \"${ptn_term}\"
 exit 0
 "
 
+	mkdir -p /etc/X11/xorg.conf.d/
 	cat << EOS > /etc/X11/xorg.conf.d/99-calibration.conf
 Section "InputClass"
         Identifier              "calibration"
