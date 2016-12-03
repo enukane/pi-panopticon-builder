@@ -9,7 +9,7 @@ curl https://raw.githubusercontent.com/enukane/pi-panopticon-builder/master/inst
 for example
 
 ```
-curl https://raw.githubusercontent.com/enukane/pi-panopticon-builder/master/install.sh | sudo bash -s Asia/Tokyo 192.168.0.100/24 255.255.255.0
+curl https://raw.githubusercontent.com/enukane/pi-panopticon-builder/master/install.sh | sudo bash -s Asia/Tokyo 192.168.0.100 255.255.255.0
 ```
 
 
