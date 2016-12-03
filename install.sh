@@ -149,7 +149,7 @@ setup_soracomair() {
 
 setup_panopticon() {
 	print_title "Setup Panopticon"
-	gem install panopticon
+	gem install --no-document panopticon
 	tmpdir=/tmp/panopticon
 	git clone https://github.com/enukane/panopticon.git $tmpdir
 	sh $tmpdir/extra/install.sh
