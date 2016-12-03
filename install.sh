@@ -100,6 +100,10 @@ disable_unnecessary_services() {
 
 install_required_packages() {
 	print_title "Installing required packages"
+	print_task "Install adafruit script"
+	curl -SLs https://apt.adafruit.com/add-pin | bash
+	print_task "Updating package list"
+	apt-get update
 	print_task "packages for soracomair"
 	install_package wvdial screen
 	print_task "packages for display"
