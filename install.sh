@@ -110,6 +110,8 @@ install_required_packages() {
 	install_package expect raspberrypi-bootloader adafruit-pitft-helper
 	print_task "packages for panopticon TFT"
 	install_package midori matchbox x11-xserver-utils
+	print_task "packages for panopticond"
+	install_package tshark
 	print_task "gems for panopticon"
 	gem install --no-document sinatra
 }
