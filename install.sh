@@ -9,6 +9,7 @@ ARG_NETMASK=$3
 
 # default params
 ARG_NAMESERVER="8.8.8.8"
+ARG_CAPDIR="/cap"
 
 # common functions
 print_abort() {
@@ -161,6 +162,13 @@ setup_kiosk_mode() {
 	sh $tmpdir/install.sh http://localhost:8080
 }
 
+setup_capdir() {
+	print_title "Setup Capture Data Directory"
+	mkdir $ARG_CAPDIR
+	chmod a+w $ARG_CAPDIR
+	ln -s /cap /home/pi/cap
+}
+
 
 
 # main logic
@@ -173,3 +181,7 @@ setup_pitft
 setup_soracomair
 setup_panopticon
 setup_kiosk_mode
+
+setup_capdir
+
+print_title "Setup DONE, exiting"
