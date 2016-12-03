@@ -176,6 +176,7 @@ check_privilege
 show_params
 do_general_settings
 disable_unnecessary_services
+install_required_packages
 
 setup_pitft
 setup_soracomair
