@@ -43,7 +43,7 @@ check_privilege() {
 }
 
 install_package() {
-	PKGS=$1
+	PKGS=$*
 	print_subtask "installing $PKGS"
 	apt-get install --force-yes -y $PKGS
 }
