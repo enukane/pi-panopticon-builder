@@ -37,7 +37,7 @@ print_subtask() {
 check_privilege() {
 	iam=`whoami`
 	if [ ${iam} != "root" ]; then
-		print_abort("requires root privilege")
+		print_abort "requires root privilege"
 	fi
 }
 
@@ -66,7 +66,7 @@ do_general_settings() {
 	print_task "setting timezone"
 	zone_path=/usr/share/zoneinfo/${ARG_TIMEZONE}
 	if [ ! -e ${zone_path} ]; then
-		print_abort("zoneinfo for ${ARG_TIMEZONE} does not exist")
+		print_abort "zoneinfo for ${ARG_TIMEZONE} does not exist"
 	fi
 	cp /etc/localtime /etc/localtime.org
 	ln -sf /usr/share/zoneinfo/${ARG_TIMEZONE} /etc/localtime
@@ -140,12 +140,14 @@ EOS
 }
 
 setup_soracomair() {
+	print_title "Setup soracomair"
 	tmpdir=/tmp/soracomair_wvdial
 	git clone https://github.com/enukane/soracom_wvdial.git $tmpdir
 	sh $tmpdir/install.sh
 }
 
 setup_panopticon() {
+	print_title "Setup Panopticon"
 	gem install panopticon
 	tmpdir=/tmp/panopticon
 	git clone https://github.com/enukane/panopticon.git $tmpdir
@@ -153,6 +155,7 @@ setup_panopticon() {
 }
 
 setup_kiosk_mode() {
+	print_title "Setup Kiosk Mode"
 	tmpdir=/tmp/pitft-kiosk
 	git clone https://github.com/enukane/pitft-kiosk-mode $tmpdir
 	sh $tmpdir/install.sh http://localhost:8080
