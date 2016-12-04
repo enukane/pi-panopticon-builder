@@ -45,7 +45,7 @@ check_privilege() {
 install_package() {
 	PKGS=$*
 	print_subtask "installing $PKGS"
-	apt-get install --force-yes -y $PKGS
+	DEBIAN_FRONTEND=noninteractive apt-get install --force-yes -y $PKGS
 }
 
 backup_file() {
