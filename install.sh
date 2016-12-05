@@ -126,6 +126,9 @@ disable_unnecessary_services() {
 	print_title "Disabling unnecessary services"
 	#print_task "remove dhcpcd"
 	#update-rc.d dhcpcd remove
+
+	print_task "remove ModemManager"
+	systemctl disable ModemManager.service
 }
 
 install_required_packages() {
