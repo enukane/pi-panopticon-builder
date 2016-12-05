@@ -123,7 +123,7 @@ EOS
 }
 
 disable_unnecessary_services() {
-	#print_title "Disabling unnecessary services"
+	print_title "Disabling unnecessary services"
 	#print_task "remove dhcpcd"
 	#update-rc.d dhcpcd remove
 }
