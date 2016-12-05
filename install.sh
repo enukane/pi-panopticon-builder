@@ -61,6 +61,24 @@ show_params() {
 	echo "  - NETMASK  = $ARG_NETMASK"
 }
 
+calc_subnet() {
+	netmask=$1
+	case $netmask in
+	255.255.255.0)
+		echo 24
+		;;
+	255.255.0.0)
+		echo 16
+		;;
+	255.0.0.0)
+		echo 8
+		;;
+	*)
+		print_abort "netmask not supported '${netmask}'"
+		;;
+	esac
+}
+
 do_general_settings() {
 	print_title "General Settings"
 	
@@ -90,12 +108,24 @@ EOS
 	mv $tmppath /etc/network/interfaces
 	# don't restart networking service; reboot will handle this
 
+	print_task "setting interface address for eth0 (dhcpcd)"
+	tmppath=/tmp/dhcp-eth0.conf
+	subnet_size=`calc_subnet ${ARG_NETMASK}`
+	cat << EOS > $tmppath
+interface eth0
+static ip_address=${ARG_IPADDR}/${subnet_size}
+static domain_name_servers=8.8.8.8
+EOS
+	cp /etc/dhcpcd.conf /etc/dhcpcd.conf.org
+	mv $tmppath /etc/dhcpcd.conf
+	# don't restart dhcpcd; reboot will handle this
+
 }
 
 disable_unnecessary_services() {
-	print_title "Disabling unnecessary services"
-	print_task "remove dhcpcd"
-	update-rc.d dhcpcd remove
+	#print_title "Disabling unnecessary services"
+	#print_task "remove dhcpcd"
+	#update-rc.d dhcpcd remove
 }
 
 install_required_packages() {
