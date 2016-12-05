@@ -135,7 +135,7 @@ install_required_packages() {
 	print_task "Updating package list"
 	apt-get update
 	print_task "packages for soracomair"
-	install_package wvdial screen
+	install_package wvdial screen ntpdate
 	print_task "packages for display"
 	install_package expect raspberrypi-bootloader adafruit-pitft-helper
 	print_task "packages for panopticon TFT"
