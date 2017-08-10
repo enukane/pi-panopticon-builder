@@ -142,7 +142,7 @@ install_required_packages() {
 	print_task "packages for display"
 	install_package expect raspberrypi-bootloader adafruit-pitft-helper
 	print_task "packages for panopticon TFT"
-	install_package midori matchbox x11-xserver-utils xinit
+	install_package midori matchbox x11-xserver-utils xinit xserver-xorg
 	print_task "packages for panopticond"
 	install_package tshark ruby git
 	print_task "gems for panopticon"
