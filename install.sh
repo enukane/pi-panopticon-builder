@@ -144,7 +144,7 @@ install_required_packages() {
 	print_task "packages for panopticon TFT"
 	install_package midori matchbox x11-xserver-utils
 	print_task "packages for panopticond"
-	install_package tshark
+	install_package tshark ruby
 	print_task "gems for panopticon"
 	gem install --no-document sinatra -v 1.4.8
 }
