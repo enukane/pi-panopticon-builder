@@ -146,7 +146,7 @@ install_required_packages() {
 	print_task "packages for panopticond"
 	install_package tshark
 	print_task "gems for panopticon"
-	gem install --no-document sinatra
+	gem install --no-document sinatra -v 1.4.8
 }
 
 setup_pitft() {
